@@ -216,13 +216,13 @@ In **Kubernetes Engine**, a cluster will appear: `kflab`
 
   - In the Services section, a number of Kubeflow services;
 
-After the cluster is set up, use `gcloud` to fetch its credentials so you can communicate with it using `kubectl`
+After the cluster is set up, use `gcloud` to fetch its credentials so you can communicate with it using `kubectl`. That is not necessary anymore, Cloud Shell already makes that configuration for us. But it's useful to know you can use it, and it's no harm to run again.
 
 ```bash
 gcloud container clusters get-credentials ${KF_NAME} --zone ${ZONE} --project ${DEVSHELL_PROJECT_ID}
 ```
 
-Switch to the `kubeflow` namespace
+Sets the default namespace for the kubernetes control CLI, `kubectl`. All following commands will be directed only to the recently created `kubeflow` namespace.
 
 ```bash
 kubectl config set-context $(kubectl config current-context) --namespace=kubeflow
@@ -280,7 +280,7 @@ If you're seeing logs, that means training is working and you can terminate the 
 
 ```bash
 # allow docker to access our GCR registry 
-#  that used to be necessary, but it's not necessary anymore, Cloud Shells brings that already configured
+#   that used to be necessary, but not anymore, Cloud Shell already configures that for us
 gcloud auth configure-docker --quiet
 
 # push container to GCR
