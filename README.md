@@ -118,7 +118,7 @@ For other ways to install Kustomize, check out the [installation guide](https://
 
 ### Install kfctl
 
-The Kubeflow command-line tool, [`kfctl`](https://www.kubeflow.org/docs/gke/deploy/deploy-cli/), can be installed running a few steps. As of January 2020, because of an error in the [kubeflow installation](https://github.com/kubeflow/kubeflow/issues/4642), we have to make a few extra steps.
+The Kubeflow command-line tool, [`kfctl`](https://www.kubeflow.org/docs/gke/deploy/deploy-cli/), can be installed running a few steps. As of January 2020, because of [an error](https://github.com/kubeflow/kubeflow/issues/4642) in the kubeflow installation, we have to make a few extra steps.
 
 First, let's define what version we want to install and export some variables:
 
