@@ -118,7 +118,7 @@ For other ways to install Kustomize, check out the [installation guide](https://
 
 ### Install kfctl
 
-The Kubeflow command-line tool, [`kfctl`](https://www.kubeflow.org/docs/gke/deploy/deploy-cli/), can be installed running a few steps. As of January 2020, because of [an error](https://github.com/kubeflow/kubeflow/issues/4642) in the kubeflow installation, we have to make a few extra steps.
+The Kubeflow command-line tool, [`kfctl`](https://www.kubeflow.org/docs/gke/deploy/deploy-cli/), can be installed running a few steps.
 
 First, let's define what version we want to install and export some variables:
 
@@ -147,7 +147,10 @@ gcloud services enable container.googleapis.com
 ```
 
 ## Create a cluster
-To create a managed Kubernetes cluster on Kubernetes Engine using `kfctl`, we will walk through the following steps:
+
+To create a managed Kubernetes cluster on Kubernetes Engine using `kfctl`, we will walk through the following steps. 
+
+As of January 2020, because of [an error](https://github.com/kubeflow/kubeflow/issues/4642) in the kubeflow installation, we have to make a few extra steps.
 
 - Create an application directory
 - Download the configuration and manifest files
