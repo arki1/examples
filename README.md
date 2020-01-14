@@ -207,8 +207,8 @@ Cluster creation will take a few minutes to complete (between 5 and 10). While i
 
 In **Deployment Manager**, two deployment objects will appear:
 
-- kubeflow-qwiklab-storage
-- kubeflow-qwiklab
+  - kflab
+  - kflab-storage
 
 In **Kubernetes Engine**, a cluster will appear: `kflab`
 
