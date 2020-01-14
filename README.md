@@ -365,11 +365,15 @@ After applying the component, there should be a new tf-job on the cluster called
 kubectl describe tfjob
 ```
 
-For even more information, you can retrieve the python logs from the pod that's running the container itself (after the container has finished initializing):
+For even more information, you can retrieve the python logs from the pod that's running the container itself (after the container has finished initializing).
+
+If this command fails with `Error from server (BadRequest): container "tensorflow" in pod "mnist-train-dist-chief-0" is waiting to start: ContainerCreating`, don't worry: just try again.
 
 ```bash
 kubectl logs -f mnist-train-dist-chief-0
 ```
+
+Hit `CTRL-C` to interrupt the logs streaming.
 
 When training is complete, you can query your bucket's data using gsutil. You should see the model data added to your bucket:
 
@@ -418,11 +422,15 @@ Now, deploy the server to the cluster:
 kustomize build . | kubectl apply -f -
 ```
 
-Lets check the logs to see if everything is alright:
+Lets check the logs to see if everything is alright.
+
+If the command fails with `Error... ContainerCreating`, just try again. When it displays `RAW: Entering the event loop` it means, it's ready for incoming requests. Let's move on to the last step.
 
 ```bash
 kubectl logs -f $(kubectl get pods | grep mnist-service | grep -Eo '^[^ ]+')
 ```
+
+Hit `CTRL-C` to interrupt the logs streaming.
 
 If you describe the new service, you'll see it's listening for connections within the cluster on port 9000:
 
@@ -444,11 +452,15 @@ Unlike the other steps, this manifest requires no customization. It can be appli
 kustomize build . | kubectl apply -f -
 ```
 
-The service added is of type [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types), meaning it can't be accessed from outside the cluster. In order to load the web UI in your web browser, you have to set up a direct connection to the cluster:
+The service added is of type [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types), meaning it can't be accessed from outside the cluster. In order to load the web UI in your web browser, you have to set up a direct connection to the cluster.
+
+If the command below fails with `error: unable to forward port because pod is not running. Current status=Pending`, try again.
 
 ```bash
 kubectl port-forward svc/web-ui 8080:80
 ```
+
+You know the command worked when it displays `Forwarding from 127.0.0.1:8080 -> 5000`.
 
 Now in your Cloud Shell interface, press the web preview button and select "Preview on port 8080" to open the web interface in your browser:
 
