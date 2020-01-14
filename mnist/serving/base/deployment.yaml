@@ -14,7 +14,7 @@ spec:
         app: mnist
         version: v1
     spec:
-      serviceAccount: default-editor
+      serviceAccount: kf-user
       containers:
       - args:
         - --port=9000

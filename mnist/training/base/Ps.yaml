@@ -12,7 +12,7 @@ spec:
           annotations:
             sidecar.istio.io/inject: "false"
         spec:
-          serviceAccount: default-editor
+          serviceAccount: kf-user
           containers:
           - name: tensorflow
             command:

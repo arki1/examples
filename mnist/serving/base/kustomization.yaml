@@ -13,19 +13,3 @@ generatorOptions:
 
 configurations:
 - params.yaml
-
-vars:
-- fieldref:
-    fieldPath: data.name
-  name: svcName
-  objref:
-    apiVersion: v1
-    kind: ConfigMap
-    name: mnist-map-serving
-- fieldref:
-    fieldPath: data.modelBasePath
-  name: modelBasePath
-  objref:
-    apiVersion: v1
-    kind: ConfigMap
-    name: mnist-map-serving
