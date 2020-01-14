@@ -58,7 +58,7 @@ This is what you should see:
 
 If you see a yellow tag in your prompt, you're ready: go to the next section.
 
-If you are **NOT seeing** a terminal without an yellow tag in your prompt describing your project-id, then you must execute this command:
+If you are **NOT seeing** a terminal with an yellow tag in your prompt describing your project-id, then you must execute this command:
 
 ```bash
 gcloud config set project <your_project_id>
